@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -27,9 +28,11 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
         TextView mewokWordTextView = convertView.findViewById(R.id.mewok_word);
         TextView englishWordTextView = convertView.findViewById(R.id.english_word);
+        ImageView imageView = convertView.findViewById(R.id.imageView);
         Word word = getItem(position);
         mewokWordTextView.setText(word.getMewokTranslation());
         englishWordTextView.setText(word.getDefaultTranslation());
+        imageView.setImageResource(word.getImageResourceId());
         return convertView;
     }
 }
