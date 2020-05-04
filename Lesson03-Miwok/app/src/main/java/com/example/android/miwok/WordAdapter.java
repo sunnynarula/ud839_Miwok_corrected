@@ -3,6 +3,7 @@ package com.example.android.miwok;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
     public WordAdapter(@NonNull Context context, ArrayList<Word> listOfWords, int colorResourceId) {
         super(context, 0, listOfWords);
-        backgroundColor = context.getResources().getColor(colorResourceId);
+        backgroundColor = ContextCompat.getColor(context, colorResourceId);
     }
 
     @NonNull
