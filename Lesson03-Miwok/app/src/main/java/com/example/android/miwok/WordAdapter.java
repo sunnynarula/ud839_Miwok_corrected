@@ -32,7 +32,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
         Word word = getItem(position);
         mewokWordTextView.setText(word.getMewokTranslation());
         englishWordTextView.setText(word.getDefaultTranslation());
-        imageView.setImageResource(word.getImageResourceId());
+        int imageResourceId = word.getImageResourceId();
+        if(imageResourceId == 0) {
+            imageView.setVisibility(View.GONE);
+        } else {
+            imageView.setVisibility(View.VISIBLE);
+            imageView.setImageResource(imageResourceId);
+        }
         return convertView;
     }
 }
