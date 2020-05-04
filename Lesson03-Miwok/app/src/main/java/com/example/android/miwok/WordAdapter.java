@@ -8,14 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    public WordAdapter(@NonNull Context context, ArrayList<Word> listOfWords) {
+    private final int backgroundColor;
+
+    public WordAdapter(@NonNull Context context, ArrayList<Word> listOfWords, int colorResourceId) {
         super(context, 0, listOfWords);
+        backgroundColor = context.getResources().getColor(colorResourceId);
     }
 
     @NonNull
@@ -26,6 +30,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView = layoutInflater.inflate(R.layout.list_item, parent, false);
         }
+        LinearLayout wordHolderLinearLayout = convertView.findViewById(R.id.word_holder_linear_layout);
+        wordHolderLinearLayout.setBackgroundColor(backgroundColor);
         TextView mewokWordTextView = convertView.findViewById(R.id.mewok_word);
         TextView englishWordTextView = convertView.findViewById(R.id.english_word);
         ImageView imageView = convertView.findViewById(R.id.imageView);

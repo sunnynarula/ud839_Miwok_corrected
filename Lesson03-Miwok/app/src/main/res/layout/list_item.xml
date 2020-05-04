@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,10 +12,10 @@
         android:background="@color/tan_background"/>
 
     <LinearLayout
+        android:id="@+id/word_holder_linear_layout"
         android:layout_width="0dp"
         android:layout_height="@dimen/list_item_height"
         android:layout_weight="1"
-        android:background="@color/category_numbers"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:padding="16dp">
