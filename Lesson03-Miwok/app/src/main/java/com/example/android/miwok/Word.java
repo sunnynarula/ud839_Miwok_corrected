@@ -21,4 +21,9 @@ public class Word {
         this.defaultTranslation = defaultTranslation;
         this.mewokTranslation = mewokTranslation;
     }
+
+    public Word(String defaultTranslation, String mewokTranslation, int imageResourceId) {
+        this(defaultTranslation, mewokTranslation);
+        this.imageResourceId = imageResourceId;
+    }
 }
