@@ -41,7 +41,6 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<Word> {
 
     private final int backgroundColor;
-    private MediaPlayer mediaPlayer;
 
     /**
      * Create a new {@link WordAdapter} object.
@@ -65,17 +64,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
         // Get the {@link Word} object located at this position in the list
         final Word word = getItem(position);
-        LinearLayout entireRow = convertView.findViewById(R.id.word_list_item_linear_layout);
-        entireRow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mediaPlayer != null) {
-                    mediaPlayer.release();
-                }
-                mediaPlayer = MediaPlayer.create(getContext(), word.getAudioResourceId());
-                mediaPlayer.start();
-            }
-        });
         LinearLayout wordHolderLinearLayout = convertView.findViewById(R.id.word_holder_linear_layout);
         wordHolderLinearLayout.setBackgroundColor(backgroundColor);
 
@@ -103,4 +91,5 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // the ListView.
         return convertView;
     }
+
 }
