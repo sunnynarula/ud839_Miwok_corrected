@@ -34,10 +34,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Set a click listener on that View
         numbers.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the numbers View is clicked on.
+            // The code in this method will be executed when the numbers category is clicked on.
             @Override
             public void onClick(View view) {
+                // Create a new intent to open the {@link NumbersActivity}
                 Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
+
+                // Start the new activity
                 startActivity(numbersIntent);
             }
         });
@@ -46,10 +49,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Set a click listener on that View
         family.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the family View is clicked on.
+            // The code in this method will be executed when the family category is clicked on.
             @Override
             public void onClick(View view) {
+                // Create a new intent to open the {@link FamilyActivity}
                 Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+
+                // Start the new activity
                 startActivity(familyIntent);
             }
         });
@@ -58,10 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Set a click listener on that View
         colors.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the colors View is clicked on.
+            // The code in this method will be executed when the colors category is clicked on.
             @Override
             public void onClick(View view) {
+                // Create a new intent to open the {@link ColorsActivity}
                 Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+
+                // Start the new activity
                 startActivity(colorsIntent);
             }
         });
@@ -70,10 +79,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Set a click listener on that View
         phrases.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the phrases View is clicked on.
+            // The code in this method will be executed when the phrases category is clicked on.
             @Override
             public void onClick(View view) {
+                // Create a new intent to open the {@link PhrasesActivity}
                 Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+
+                // Start the new activity
                 startActivity(phrasesIntent);
             }
         });
