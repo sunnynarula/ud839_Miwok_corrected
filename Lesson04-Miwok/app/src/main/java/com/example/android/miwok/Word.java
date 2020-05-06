@@ -15,6 +15,8 @@
  */
 package com.example.android.miwok;
 
+import android.support.annotation.NonNull;
+
 /**
  * {@link Word} represents a vocabulary word that the user wants to learn.
  * It contains a default translation and a Miwok translation for that word.
@@ -23,6 +25,7 @@ public class Word {
     /** Default translation for the word */
     private String defaultTranslation;
     private int imageResourceId;
+    private int audioResourceId;
 
     private static final  int NO_IMAGE_PROVIDED = -1;
 
@@ -47,6 +50,10 @@ public class Word {
         return imageResourceId;
     }
 
+    public int getAudioResourceId() {
+        return audioResourceId;
+    }
+
     /**
      * Create a new Word object.
      *
@@ -54,16 +61,18 @@ public class Word {
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
         this.defaultTranslation = defaultTranslation;
         this.miwokTranslation = miwokTranslation;
+        this.audioResourceId = audioResourceId;
         this.imageResourceId = NO_IMAGE_PROVIDED;
     }
 
-    public Word(String defaultTranslation, String mewokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation, String mewokTranslation, int imageResourceId, int audioResourceId) {
         this.defaultTranslation = defaultTranslation;
         this.miwokTranslation = mewokTranslation;
         this.imageResourceId = imageResourceId;
+        this.audioResourceId = audioResourceId;
     }
 
     public boolean hasImage() {
