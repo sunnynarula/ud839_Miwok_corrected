@@ -18,10 +18,13 @@ package com.example.android.miwok;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -32,14 +35,17 @@ import java.util.ArrayList;
  */
 public class WordAdapter extends ArrayAdapter<Word> {
 
+    private final int backgroundColor;
+
     /**
      * Create a new {@link WordAdapter} object.
      *
      * @param context is the current context (i.e. Activity) that the adapter is being created in.
      * @param words is the list of {@link Word}s to be displayed.
      */
-    public WordAdapter(@NonNull Context context, ArrayList<Word> words) {
+    public WordAdapter(@NonNull Context context, ArrayList<Word> words, int colorResourceId) {
         super(context, 0, words);
+        backgroundColor = ContextCompat.getColor(context, colorResourceId);
     }
 
     @NonNull
@@ -51,6 +57,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView = layoutInflater.inflate(R.layout.list_item, parent, false);
         }
+        LinearLayout wordHolderLinearLayout = convertView.findViewById(R.id.word_holder_linear_layout);
+        wordHolderLinearLayout.setBackgroundColor(backgroundColor);
         // Get the {@link Word} object located at this position in the list
         Word word = getItem(position);
 
@@ -65,6 +73,14 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // Get the default translation from the currentWord object and set this text on
         // the default TextView.
         englishWordTextView.setText(word.getDefaultTranslation());
+
+        ImageView imageView = convertView.findViewById(R.id.imageView);
+        if(word.hasImage()) {
+            imageView.setVisibility(View.VISIBLE);
+            imageView.setImageResource(word.getImageResourceId());
+        } else {
+            imageView.setVisibility(View.GONE);
+        }
 
         // Return the whole list item layout (containing 2 TextViews) so that it can be shown in
         // the ListView.
