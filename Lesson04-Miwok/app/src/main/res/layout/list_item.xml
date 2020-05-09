@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,23 +12,26 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/list_item_height"
     android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/list_item_height"
         android:layout_height="@dimen/list_item_height"
-        android:background="@color/tan_background"/>
+        android:background="@color/tan_background" />
 
     <LinearLayout
         android:id="@+id/word_holder_linear_layout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/list_item_height"
-        android:layout_weight="1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:padding="16dp">
@@ -38,8 +40,8 @@
             android:id="@+id/mewok_word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
             android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/white"
             android:textStyle="bold"
             tools:text="lutti" />
 
@@ -47,9 +49,19 @@
             android:id="@+id/english_word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
             android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/white"
             tools:text="one" />
     </LinearLayout>
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/baseline_play_arrow_white_24dp" />
+</RelativeLayout>

@@ -16,6 +16,8 @@
 package com.example.android.miwok;
 
 import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -26,7 +28,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -57,10 +62,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView = layoutInflater.inflate(R.layout.list_item, parent, false);
         }
+        // Get the {@link Word} object located at this position in the list
+        final Word word = getItem(position);
         LinearLayout wordHolderLinearLayout = convertView.findViewById(R.id.word_holder_linear_layout);
         wordHolderLinearLayout.setBackgroundColor(backgroundColor);
-        // Get the {@link Word} object located at this position in the list
-        Word word = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID miwok_word.
         TextView mewokWordTextView = convertView.findViewById(R.id.mewok_word);
@@ -86,4 +91,5 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // the ListView.
         return convertView;
     }
+
 }
