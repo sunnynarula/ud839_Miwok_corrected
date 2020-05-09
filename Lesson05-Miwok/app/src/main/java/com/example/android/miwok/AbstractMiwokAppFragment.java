@@ -16,7 +16,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 /**
- * Adapted {@link AbstractMiwokAppActivity} to create a fragment along similar lines.
+ * An abstract class containing the common code for all the fragments {@link ColorsFragment},
+ * {@link FamilyFragment}, {@link NumbersFragment} and {@link PhrasesFragment}.
  */
 public abstract class AbstractMiwokAppFragment extends Fragment {
 
